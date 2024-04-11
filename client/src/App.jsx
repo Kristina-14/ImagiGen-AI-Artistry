@@ -15,7 +15,7 @@ const App = () => {
 
       <Link to="/create-post"
       className="font-inter font-medium bg-[#0c4a6e] text-white 
-      px-4 py-2 rounded-md">Create</Link>
+      px-4 py-2 rounded-md hover:bg-[#cbd5e1] hover:text-black">Create</Link>
     </header>
     <main className="sm:p-8 px-4 py-8 w-full bg-[#94a3b8]
     min-h-[calc (100vh-73px)]">
