@@ -24,6 +24,10 @@ const App = () => {
         <Route path="/createpost" element={<CreatePost/>}/>
       </Routes>    
     </main>
+
+    <footer>
+      Developed by Kristina Barooah.
+    </footer>
     </BrowserRouter>
   )
 }
