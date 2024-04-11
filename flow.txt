@@ -1,0 +1,76 @@
+
+
+    Directory: C:\Users\Hp1\ImagiGen-AI-Artistry
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         4/11/2024   9:35 AM                client
+
+PS C:\Users\Hp1\ImagiGen-AI-Artistry\client>
+                                             npm create vite@latest ./     
+√ Select a framework: » React
+√ Select a variant: » JavaScript
+
+Scaffolding project in C:\Users\Hp1\ImagiGen-AI-Artistry\client...
+
+Done. Now run:
+
+  npm install
+y\client>
+
+                                             npm install
+
+added 278 packages, and audited 279 packages in 1m
+
+103 packages are looking for funding
+  run `npm fund` for details
+PS C:\Users\Hp1\ImagiGen-AI-Artistry\client> npm i tailwindcss
+
+added 80 packages, and audited 359 packages in 17s
+
+found 0 vulnerabilities                      npm install -D tailwindcss@latest postcss@latest autoprefixer@latestlient>
+npm WARN idealTree Removing dependencies.tailwindcss in favor of devDependencies.tailwindcss
+
+added 3 packages, and audited 362 packages in 3s
+
+126 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+PS C:\Users\Hp1\ImagiGen-AI-Artistry\client>
+
+
+                                             cd src
+PS C:\Users\Hp1\ImagiGen-AI-Artistry\client\src> npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
+
+up to date, audited 362 packages in 2s
+
+s postcss autoprefixer
+
+up to date, audited 362 packages in 3s
+
+126 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+PS C:\Users\Hp1\ImagiGen-AI-Artistry\client> npx tailwindcss init -p       
+
+Created Tailwind CSS config file: tailwind.config.js
+Created PostCSS config file: postcss.config.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+chunk-MCEUSTYS.js?v=fc095dd6:519 Warning: The tag <createPost> is unrecognized in this browser. If you meant to render a React component, start its name with an uppercase letter.
+    at createPost
