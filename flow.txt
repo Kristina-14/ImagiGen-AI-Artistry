@@ -59,18 +59,14 @@ PS C:\Users\Hp1\ImagiGen-AI-Artistry\client> npx tailwindcss init -p
 Created Tailwind CSS config file: tailwind.config.js
 Created PostCSS config file: postcss.config.js
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 chunk-MCEUSTYS.js?v=fc095dd6:519 Warning: The tag <createPost> is unrecognized in this browser. If you meant to render a React component, start its name with an uppercase letter.
     at createPost
+
+Server side:
+mkdir Server
+cd Server
+npm init -y
+change package.json > script to "start": "nodemon"
+install all the necessary packages:
+npm i cloudinary cors dotenv express mongoose nodemon openai
+Add -->> type: "module" in package.json
