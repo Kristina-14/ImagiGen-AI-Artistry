@@ -19,7 +19,7 @@ handleChange, isSurpriseMe, handleSurpriseMe}) => {
       <button
       type='button'
       onClick={handleSurpriseMe}
-      className='font-semibold text-[13px] bg-[#082f49] py-1 px-2
+      className='font-medium text-[13px] bg-[#0c4a6e] py-1 px-2
       rounded-[5px] text-white hover:bg-[#ECECF1] hover:text-black
       '>
         Surprise Me!

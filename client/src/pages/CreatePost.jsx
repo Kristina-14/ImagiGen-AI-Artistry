@@ -17,18 +17,25 @@ const CreatePost = () => {
   const [generateImg, setGenerateImg] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  // to call the api to work.
+  const generateImage = () => {
+
+  }
+
+  // to handle the form submission.
   const handleSubmit = () => {
 
   }
 
   // to handle the errors.
   const handleChange = (e) => {
-
+    setForm({ ...form, [e.target.name]: e.target.value})
   }
 
   // to handle the surprise me button.
   const handleSurpriseMe = () => {
-
+    const randomPrompt = getRandomPrompt(form.prompt);
+    setForm({ ...form, prompt: randomPrompt})
   }
 
   return (
@@ -39,7 +46,7 @@ const CreatePost = () => {
       <h1 className='font-extrabold text-[#020617] text-[34px]'>The Gallery Images</h1>
       <p className='mt-2 text-[#475569] text-[16px] max-w [500px]'>
         <i>Create visually stunning images using DALL-E AI API.</i>
-        Generate your own images and add to the gallery by clicking the button below.
+        Generate your own images and add to the Image Gallery.
       </p>
       </div>
 {/* form component to handle the data of the users!*/}
@@ -91,6 +98,27 @@ const CreatePost = () => {
           )}
       </div>
   </div>
+  <div className='mt-5 flex gap-5'>
+    <button
+    type='button'
+    onClick={generateImage}
+    className='text-white bg-[#3b0764] font-semibold rounded-md
+    text-sm w-full sm:w-auto px-5 py-2.5 text-center hover:bg-[#ddd6fe] hover:text-black'
+    >
+      {generateImg? "Generating...": "Generate Image"}
+    </button>
+  </div>
+  <div className='mt-10'>
+  <p className='mt-2 text-[#475569] text-[16px]'>After generating the Image, you can add it to the gallery!</p>
+  </div>
+  <br/>
+    <button
+    type='submit'
+    className='mt-3 text-white bg-[#082f49] font-medium rounded-md
+    text-sm w-full sm:w-auto px-5 py-2.5 text-center hover:bg-[#ECECF1] hover:text-black'>
+    
+    {loading ? 'Adding' : 'Add to the Gallery'}
+    </button>
 </form>
 </section>
   )
