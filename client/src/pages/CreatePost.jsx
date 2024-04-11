@@ -16,6 +16,21 @@ const CreatePost = () => {
   });
   const [generateImg, setGenerateImg] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const handleSubmit = () => {
+
+  }
+
+  // to handle the errors.
+  const handleChange = (e) => {
+
+  }
+
+  // to handle the surprise me button.
+  const handleSurpriseMe = () => {
+
+  }
+  
   return (
     // <div><b>Create Post</b></div>
     <section>
@@ -27,6 +42,32 @@ const CreatePost = () => {
         Generate your own images and add to the gallery by clicking the button below.
       </p>
       </div>
+{/* form component to handle the data of the users!*/}
+<form className='mt-16 max-w-3xl' onSubmit={handleSubmit}>
+  <div className='flex flex-col gap-5'>
+    <FormField
+    lableName = "User Name"
+    type = "text"
+    name = "name"
+    value = {form.name}
+    placeholder = "Kristina Barooah"
+    handleChange = {handleChange}
+    />
+
+<FormField
+    lableName = "Your Prompt"
+    type = "text"
+    name = "prompt"
+    value = {form.prompt}
+    placeholder = "Girl dancing in the rain."
+    handleChange = {handleChange}
+    isSurpriseMe
+    handleSurpriseMe = {handleSurpriseMe}
+    />
+
+  </div>
+</form>
+
     </section>
   )
 }
