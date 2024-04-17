@@ -12,7 +12,7 @@ dotenv.config();
 
 const app = express(); //creating the object of express
 app.use(cors()); //using some middleware
-app.use(express.json());
+app.use(express.json({ limit: '50mb' }));
 
 //creating api end points to connect.
 app.use('/api/v1/post', postRoutes);

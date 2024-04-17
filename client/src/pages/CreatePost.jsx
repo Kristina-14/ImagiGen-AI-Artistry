@@ -7,7 +7,7 @@ import { Loader, FormField } from '../components'
 
 const CreatePost = () => {
   // hooks to return/naviagte back to my home page.
-  const naviagte = useNavigate();
+  const navigate = useNavigate();
   // state to hold the form data.
   const [form, setForm] = useState({
     name: '',
@@ -48,9 +48,37 @@ const CreatePost = () => {
   }
 
   // to handle the form submission.
-  const handleSubmit = () => {
+  const handleSubmit = async(e) => {
+    e.preventDefault();
 
+    if(form.prompt && form.photo){
+      setLoading(true);
+
+      try{
+        const response = await fetch('http://localhost:8000/api/v1/post',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(form),
+        })
+        await response.json();
+        navigate('/')
+      }
+      catch(error){
+        alert(error);
+      }
+      finally{
+        setLoading(false);
+      }
+    }
+
+    else{
+      alert('Please enter a prompt and generate the image to proceed!');
+    }
   }
+  
 
   // to handle the errors.
   const handleChange = (e) => {

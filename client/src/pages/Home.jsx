@@ -13,7 +13,53 @@ return (
 const Home = () => {
   const [loading, setLodading] = useState(false); // creating a loading state
   const [allPosts, setAllPosts] = useState(null); // creating a state to store all posts, initialized with NULL
+  
   const [searchText, setSearchText] = useState(''); //createing a searchText state to hold the search text so that it can show results for this text.
+  const [searhedResults, setSearchedResults] = useState(null);
+  const [searchTimeout, setSearchTimeout] = useState(null);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      setLodading(true);
+
+      try{
+        const response = await fetch('http://localhost:8000/api/v1/post', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if(response.ok){
+          const result = await response.json();
+
+          setAllPosts(result.data.reverse());
+        }
+      } catch(error){
+        alert(error);
+      } finally {
+        setLodading(false);
+      }
+    }
+    fetchPosts();
+  }, []); 
+
+// implementing the search functionality
+const handleSearchChange = (e) =>{
+  clearTimeout(searchTimeout);
+
+  setSearchText(e.target.value);
+
+  setSearchTimeout(  
+    setTimeout(() => {
+    const searchResults = allPosts.filter((item) => item.name
+    .toLowerCase().includes(searchText.toLowerCase()) || 
+    item.prompt.toLowerCase().includes(
+      searchText.toLowerCase()))
+      setSearchedResults(searchResults);
+    }, 500));
+      
+}
 
   return (
     // <div><b>Home</b></div>
@@ -29,7 +75,14 @@ const Home = () => {
 
 {/* I added the form field */}
 <div className='mt-16'>
-  <FormField />
+  <FormField 
+    lableName="Search posts"
+    type="text"
+    name="text"
+    placeholder="Search posts"
+    value={searchText}
+    handleChange={handleSearchChange}
+  />
 </div>
 
 {/* I added the Loader Component. */}
@@ -50,12 +103,12 @@ const Home = () => {
     <div className='grid lg:grid-cols-4 sm:grid-cols-3
     xs:grid-cols-2 grid-cols-1 gap-3'>
       {searchText ? (<RenderCards
-        data={[]} //"searchResults"
+        data={searhedResults} //"searchResults"
         title="No search results found!!"
       />)
       :
       <RenderCards 
-      data={[]}  //"allPosts"
+      data={allPosts}  //"allPosts"
       title = "No posts found"/>}
     </div>
   </>}
